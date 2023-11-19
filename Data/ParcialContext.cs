@@ -5,7 +5,9 @@ namespace ParcialLenguajeInformatico.Data
 {
     public class ParcialContext : DbContext
     {
-        
+        public ParcialContext(DbContextOptions options) : base(options)
+        {
+        }
         public DbSet<Paciente> Paciente { get; set; }
         public DbSet<Consulta> Consulta { get; set; }
 

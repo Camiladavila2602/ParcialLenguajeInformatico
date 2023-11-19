@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using ParcialLenguajeInformatico.Data;
+
 namespace ParcialLenguajeInformatico
 {
     public class Program
@@ -8,7 +11,9 @@ namespace ParcialLenguajeInformatico
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-
+            builder.Services.AddDbContext<ParcialContext>(options =>
+               options.UseSqlServer(builder.Configuration.GetConnectionString("ParcialDB"))
+           );
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
